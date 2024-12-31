@@ -13,14 +13,14 @@
 
     body {
       font-family: Arial, sans-serif;
-      background-color: #4e73df; /* Nouveau fond de couleur */
+      background-color: transparent; /* Pas de fond */
       overflow-x: hidden;
       height: 100%; /* Nécessaire pour que le scroll infini fonctionne */
     }
 
     .content {
       height: 200vh; /* Simule une page plus grande que l'écran */
-      background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Gradient de fond */
+      background-color: transparent; /* Pas de fond */
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -28,22 +28,11 @@
       padding: 20px;
     }
 
-    .content h1 {
-      margin: 50px;
-      color: white;
-    }
-
-    .content p {
-      margin: 50px;
-      color: #fff;
-      font-size: 1.2rem;
-    }
   </style>
 </head>
 <body>
   <div class="content">
-    <h1>Bienvenue sur ma page avec scroll infini !</h1>
-    <p>Faites défiler pour voir la magie du scroll infini en boucle.</p>
+    <!-- Ici, rien d'autre n'est ajouté pour le design -->
   </div>
 
   <script>
@@ -61,4 +50,5 @@
   </script>
 </body>
 </html>
+
 
