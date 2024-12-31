@@ -13,42 +13,57 @@
 
     body {
       font-family: Arial, sans-serif;
-      background-color: transparent; /* Pas de fond */
+      background: #f0f0f0;
       overflow-x: hidden;
-      height: 100%; /* Nécessaire pour que le scroll infini fonctionne */
+      margin: 0;
+      padding: 0;
     }
 
     .content {
-      height: 200vh; /* Simule une page plus grande que l'écran */
-      background-color: transparent; /* Pas de fond */
+      height: 300vh; /* Page plus grande que l'écran pour un scroll fluide */
+      background: linear-gradient(to bottom, #ff7e5f, #feb47b);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      padding: 20px;
     }
 
+    .content h1, .content p {
+      color: white;
+      text-align: center;
+      margin: 10px;
+    }
   </style>
 </head>
 <body>
   <div class="content">
-    <!-- Ici, rien d'autre n'est ajouté pour le design -->
+    <h1>Bienvenue dans le Scroll Infini!</h1>
+    <p>Le scroll infini va commencer dès que vous atteignez le bas de la page.</p>
   </div>
 
   <script>
-    // Fonction qui permet de remettre le scroll en haut lorsque l'on arrive en bas
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY; // Position actuelle
-      const scrollHeight = document.body.scrollHeight; // Hauteur totale de la page
-      const viewportHeight = window.innerHeight; // Hauteur visible
+    let scrollPos = 0;
+    let lastScroll = 0;
+    let isScrolling = false;
 
-      // Si on est tout en bas de la page, on revient en haut
-      if (scrollTop + viewportHeight >= scrollHeight) {
-        window.scrollTo(0, 0); // Ramène en haut
+    function infiniteScroll() {
+      const scrollTop = window.scrollY;  // Position actuelle
+      const scrollHeight = document.body.scrollHeight;  // Hauteur totale de la page
+      const viewportHeight = window.innerHeight;  // Hauteur visible
+
+      if (scrollTop + viewportHeight >= scrollHeight - 1) {  // Si on arrive en bas
+        if (!isScrolling) {
+          isScrolling = true;
+          setTimeout(() => {
+            window.scrollTo(0, 0);  // Ramène au top
+            isScrolling = false;
+          }, 150);  // Délai pour permettre le scroll fluide
+        }
       }
-    });
+    }
+
+    window.addEventListener('scroll', infiniteScroll);
+
   </script>
 </body>
 </html>
-
-
