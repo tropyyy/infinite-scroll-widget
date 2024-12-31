@@ -13,18 +13,19 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #f0f0f0;
+      background-color: #4e73df; /* Nouveau fond de couleur */
       overflow-x: hidden;
-      scroll-behavior: smooth;
+      height: 100%; /* Nécessaire pour que le scroll infini fonctionne */
     }
 
     .content {
       height: 200vh; /* Simule une page plus grande que l'écran */
-      background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+      background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Gradient de fond */
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
+      padding: 20px;
     }
 
     .content h1 {
@@ -46,13 +47,13 @@
   </div>
 
   <script>
-    // Vérifie si on est en bas de la page et réinitialise la position
+    // Fonction qui permet de remettre le scroll en haut lorsque l'on arrive en bas
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY; // Position actuelle
       const scrollHeight = document.body.scrollHeight; // Hauteur totale de la page
       const viewportHeight = window.innerHeight; // Hauteur visible
 
-      // Si on est tout en bas, on revient en haut
+      // Si on est tout en bas de la page, on revient en haut
       if (scrollTop + viewportHeight >= scrollHeight) {
         window.scrollTo(0, 0); // Ramène en haut
       }
@@ -60,3 +61,4 @@
   </script>
 </body>
 </html>
+
