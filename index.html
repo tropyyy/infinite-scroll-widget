@@ -13,120 +13,33 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #f0f0f0;
-      overflow-x: hidden;
-      margin: 0;
-      padding: 0;
+      overflow-x: hidden; /* Empêche le défilement horizontal */
+      scroll-behavior: smooth; /* Défilement fluide */
     }
 
     .content {
-      height: 300vh; /* Page plus grande que l'écran pour un scroll fluide */
-      background: linear-gradient(to bottom, #ff7e5f, #feb47b);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      height: 200vh; /* Hauteur de la page simulée (plus grande que l'écran) */
     }
 
-    .content h1, .content p {
-      color: white;
-      text-align: center;
-      margin: 10px;
-    }
+    /* Vous pouvez personnaliser ici votre propre design pour Readymag */
   </style>
 </head>
 <body>
-  <div class="content">
-    <h1>Bienvenue dans le Scroll Infini!</h1>
-    <p>Le scroll infini va commencer dès que vous atteignez le bas de la page.</p>
-  </div>
-
-  <script>
-    let scrollPos = 0;
-    let lastScroll = 0;
-    let isScrolling = false;
-
-    function infiniteScroll() {
-      const scrollTop = window.scrollY;  // Position actuelle
-      const scrollHeight = document.body.scrollHeight;  // Hauteur totale de la page
-      const viewportHeight = window.innerHeight;  // Hauteur visible
-
-      if (scrollTop + viewportHeight >= scrollHeight - 1) {  // Si on arrive en bas
-        if (!isScrolling) {
-          isScrolling = true;
-          setTimeout(() => {
-            window.scrollTo(0, 0);  // Ramène au top
-            isScrolling = false;
-          }, 150);  // Délai pour permettre le scroll fluide
-        }
-      }
-    }
-
-    window.addEventListener('scroll', infiniteScroll);
-
-  </script>
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Infinite Scroll Loop</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f0f0;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-
-    .content {
-      height: 200vh;
-      background: linear-gradient(to bottom, #ff7e5f, #feb47b);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .content h1 {
-      margin: 50px;
-      color: white;
-    }
-
-    .content p {
-      margin: 50px;
-      color: #fff;
-      font-size: 1.2rem;
-    }
-  </style>
-</head>
-<body>
-  <div class="content">
-    <h1>Bienvenue sur ma page avec scroll infini !</h1>
-    <p>Faites défiler pour voir la magie du scroll infini en boucle.</p>
-  </div>
+  <div class="content"></div> <!-- Contenu vide, peut être personnalisé avec vos éléments -->
 
   <script>
     window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY; // Position actuelle
-      const scrollHeight = document.body.scrollHeight; // Hauteur totale de la page
-      const viewportHeight = window.innerHeight; // Hauteur visible
+      const scrollTop = window.scrollY; // Position actuelle du scroll
+      const scrollHeight = document.body.scrollHeight; // Hauteur totale du document
+      const viewportHeight = window.innerHeight; // Hauteur de la fenêtre visible
 
-      if (scrollTop + viewportHeight >= scrollHeight - 1) { // Si on arrive au bas
+      // Si on arrive en bas de la page, remettre le scroll au top après un délai
+      if (scrollTop + viewportHeight >= scrollHeight - 1) {
         setTimeout(() => {
-          window.scrollTo(0, 0); // Remise à zéro du scroll après un délai
-        }, 200); // Délai de 200ms pour un comportement plus fluide
+          window.scrollTo({ top: 0, behavior: 'smooth' }); // Retour fluide en haut de la page
+        }, 200); // Délai de 200ms pour un effet fluide
       }
     });
   </script>
-</body>
-</html>
-
 </body>
 </html>
