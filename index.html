@@ -13,17 +13,18 @@
 
     body {
       font-family: Arial, sans-serif;
-      height: 100%; /* Assure que la hauteur de la page est complète */
+      height: 100%;
       overflow-x: hidden; /* Empêche le défilement horizontal */
+      background-color: #f0f0f0;
     }
 
     .content {
-      height: 300vh; /* Hauteur plus grande pour simuler le défilement (plus que l'écran visible) */
+      height: 5000px; /* Hauteur suffisante pour que le scroll soit testable */
     }
   </style>
 </head>
 <body>
-  <div class="content"></div> <!-- Contenu vide pour Readymag -->
+  <div class="content"></div> <!-- Contenu vide pour simuler le défilement -->
 
   <script>
     window.addEventListener('scroll', () => {
@@ -31,7 +32,7 @@
       const scrollHeight = document.body.scrollHeight; // Hauteur totale du document
       const viewportHeight = window.innerHeight; // Hauteur de la fenêtre visible
 
-      // Si on est en bas de la page, on revient en haut
+      // Vérifie si on est en bas de la page et ramène le scroll en haut
       if (scrollTop + viewportHeight >= scrollHeight) {
         window.scrollTo(0, 0); // Retourne immédiatement au top
       }
@@ -39,4 +40,5 @@
   </script>
 </body>
 </html>
+
 
