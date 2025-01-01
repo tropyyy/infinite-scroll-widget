@@ -13,32 +13,35 @@
 
     body {
       font-family: Arial, sans-serif;
-      height: 100%;
-      overflow-x: hidden; /* Empêche le défilement horizontal */
-      background-color: #f0f0f0;
+      height: 100vh;
+      overflow-x: hidden;
+      margin: 0;
     }
 
     .content {
-      height: 5000px; /* Hauteur suffisante pour que le scroll soit testable */
+      height: 200vh; /* Hauteur plus grande pour simuler un défilement fluide */
+      background-color: #f0f0f0; /* Couleur de fond */
     }
   </style>
 </head>
 <body>
-  <div class="content"></div> <!-- Contenu vide pour simuler le défilement -->
+  <div class="content"></div> <!-- Contenu vide pour Readymag -->
 
   <script>
-    window.addEventListener('scroll', () => {
+    // Le script de scroll infini
+    window.addEventListener('scroll', function() {
       const scrollTop = window.scrollY; // Position actuelle du scroll
-      const scrollHeight = document.body.scrollHeight; // Hauteur totale du document
-      const viewportHeight = window.innerHeight; // Hauteur de la fenêtre visible
+      const documentHeight = document.body.scrollHeight; // Hauteur du document
+      const windowHeight = window.innerHeight; // Hauteur de la fenêtre
 
-      // Vérifie si on est en bas de la page et ramène le scroll en haut
-      if (scrollTop + viewportHeight >= scrollHeight) {
-        window.scrollTo(0, 0); // Retourne immédiatement au top
+      // Vérifie si l'on est tout en bas de la page
+      if (scrollTop + windowHeight >= documentHeight) {
+        window.scrollTo(0, 0); // Retourne immédiatement en haut
       }
     });
   </script>
 </body>
 </html>
+
 
 
