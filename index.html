@@ -14,18 +14,15 @@
     body {
       font-family: Arial, sans-serif;
       overflow-x: hidden; /* Empêche le défilement horizontal */
-      scroll-behavior: smooth; /* Défilement fluide */
     }
 
     .content {
-      height: 200vh; /* Hauteur de la page simulée (plus grande que l'écran) */
+      height: 200vh; /* Hauteur plus grande que l'écran pour simuler le défilement */
     }
-
-    /* Vous pouvez personnaliser ici votre propre design pour Readymag */
   </style>
 </head>
 <body>
-  <div class="content"></div> <!-- Contenu vide, peut être personnalisé avec vos éléments -->
+  <div class="content"></div> <!-- Contenu vide, personnalisé par toi dans Readymag -->
 
   <script>
     window.addEventListener('scroll', () => {
@@ -33,11 +30,9 @@
       const scrollHeight = document.body.scrollHeight; // Hauteur totale du document
       const viewportHeight = window.innerHeight; // Hauteur de la fenêtre visible
 
-      // Si on arrive en bas de la page, remettre le scroll au top après un délai
+      // Vérifie si le scroll atteint le bas et revient au top sans transition fluide
       if (scrollTop + viewportHeight >= scrollHeight - 1) {
-        setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' }); // Retour fluide en haut de la page
-        }, 200); // Délai de 200ms pour un effet fluide
+        window.scrollTo(0, 0); // Remet le scroll en haut immédiatement
       }
     });
   </script>
