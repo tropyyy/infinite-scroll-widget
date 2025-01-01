@@ -17,21 +17,21 @@
     }
 
     .content {
-      height: 200vh; /* Hauteur plus grande que l'écran pour simuler le défilement */
+      height: 300vh; /* Hauteur plus grande que l'écran pour simuler le défilement */
     }
   </style>
 </head>
 <body>
-  <div class="content"></div> <!-- Contenu vide, personnalisé par toi dans Readymag -->
+  <div class="content"></div>
 
   <script>
     window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY; // Position actuelle du scroll
-      const scrollHeight = document.body.scrollHeight; // Hauteur totale du document
-      const viewportHeight = window.innerHeight; // Hauteur de la fenêtre visible
+      const scrollTop = window.scrollY;
+      const scrollHeight = document.body.scrollHeight;
+      const viewportHeight = window.innerHeight;
 
-      // Vérifie si le scroll atteint le bas et revient au top sans transition fluide
-      if (scrollTop + viewportHeight >= scrollHeight - 1) {
+      // Lorsque le scroll atteint le bas de la page, on le remet en haut
+      if (scrollTop + viewportHeight >= scrollHeight) {
         window.scrollTo(0, 0); // Remet le scroll en haut immédiatement
       }
     });
