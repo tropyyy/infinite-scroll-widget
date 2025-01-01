@@ -65,5 +65,68 @@
     window.addEventListener('scroll', infiniteScroll);
 
   </script>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infinite Scroll Loop</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    .content {
+      height: 200vh;
+      background: linear-gradient(to bottom, #ff7e5f, #feb47b);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .content h1 {
+      margin: 50px;
+      color: white;
+    }
+
+    .content p {
+      margin: 50px;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Bienvenue sur ma page avec scroll infini !</h1>
+    <p>Faites défiler pour voir la magie du scroll infini en boucle.</p>
+  </div>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY; // Position actuelle
+      const scrollHeight = document.body.scrollHeight; // Hauteur totale de la page
+      const viewportHeight = window.innerHeight; // Hauteur visible
+
+      if (scrollTop + viewportHeight >= scrollHeight - 1) { // Si on arrive au bas
+        setTimeout(() => {
+          window.scrollTo(0, 0); // Remise à zéro du scroll après un délai
+        }, 200); // Délai de 200ms pour un comportement plus fluide
+      }
+    });
+  </script>
+</body>
+</html>
+
 </body>
 </html>
